@@ -1,17 +1,35 @@
-from Live import welcome, load_game
-from CurrencyRouletteGame import play3
-from MEMORYGAME import play1
-from GuessGame import play2
+from Live import welcome
+from Live import load_game
+from Live import level_difficult
+from Utils import Screen_cleaner
+from os import system
+
+
+def games():
+    number = load_game()
+    if number == "1":
+        from MemoryGame import play1
+        play1()
+    elif number == "2":
+        from GUESSGAME import play2
+        play2()
+    elif number == "3":
+        from CurrencyRouletteGame import play3
+        play3()
+    else:
+        print("you have write a anumber")
+    """while True:
+        Number_of_games = 0
+        print("Do you want to play again? (yes or no) ")
+        playagain = input().lower()
+        while playagain == 'yes' or 'y':
+            while Number_of_games < 3:
+                games()
+                Number_of_games += 1
+        else:
+            print(playagain)
+            exit()"""
 
 
 welcome()
-load_game()
-the_number_result = load_game
-
-
-if the_number_result == 1:
-    play1()
-elif the_number_result == 2:
-    play2()
-elif the_number_result == 3:
-    play3()
+games()
